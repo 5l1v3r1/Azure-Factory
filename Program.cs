@@ -10,14 +10,16 @@ namespace AzureFactory
         {
             while(true)
             {
+                Console.WriteLine("Checking queue...");
                 // Check a message queue for direction on what to deploy.
                 // In this sample we will create a WebServicePlan and 2 WebApps
 
                 Manager.InitializeAppServicePlan();
-                Manager.InitializeWebAppPlan();
+                Manager.InitializeWebApp();
 
 
-                Thread.Sleep(300000); //<-- 5 minutes
+                Console.WriteLine("Sleeping for 5 min...");
+                Thread.Sleep(300000);
             }
         }
     }
