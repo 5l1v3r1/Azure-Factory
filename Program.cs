@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Threading;
+using AzureFactory.Factory;
 
 namespace AzureFactory
 {
@@ -6,7 +8,17 @@ namespace AzureFactory
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            while(true)
+            {
+                // Check a message queue for direction on what to deploy.
+                // In this sample we will create a WebServicePlan and 2 WebApps
+
+                Manager.InitializeAppServicePlan();
+                Manager.InitializeWebAppPlan();
+
+
+                Thread.Sleep(300000); //<-- 5 minutes
+            }
         }
     }
 }
